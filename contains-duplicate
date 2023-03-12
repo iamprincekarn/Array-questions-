@@ -1,0 +1,32 @@
+bool containsDuplicate(vector<int>& nums) {
+        //TC- O(n(logn)) //SC- O(1)
+        // sort(nums.begin(),nums.end());
+        // for(int i;i<nums.size()-1;i++)
+        // {
+        //     if(nums[i] == nums[i+1])
+        //     return true;
+        // }
+        // return false;
+
+        //TC- O(n)) //SC- O(n)
+        // unordered_set<int>st;
+        // for(int i=0;i<nums.size();i++)
+        // st.insert(nums[i]);
+        // return st.size()!=nums.size();
+
+        //TC- O(n)) //SC- O(n)
+        unordered_map<int,int>mp;
+        for(int i=0;i<nums.size();i++)
+        mp[nums[i]]++;
+        //iterating map 1st method
+        for(int i=0;i<nums.size();i++)
+        if(mp[nums[i]]>1)
+        return true;
+        return false;
+        //iterating map second method
+        // for(auto i=mp.begin();i!=mp.end();i++)
+        // if((i->second)>1)
+        // return true;
+        // return false;
+
+    }
